@@ -1,14 +1,9 @@
 {
+  "buildCommand": "echo 'Static site, no build needed'",
+  "outputDirectory": ".",
   "env": {
     "NODE_ENV": "production"
   },
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/index.html",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -26,20 +21,10 @@
           "value": "SAMEORIGIN"
         },
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "geolocation=()"
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
     }
-  ],
-  "buildCommand": "echo 'Static site, no build needed'",
-  "outputDirectory": "."
+  ]
 }
